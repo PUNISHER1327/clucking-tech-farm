@@ -43,7 +43,7 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Index />} />
-      <Route path="/auth" element={user ? <Navigate to="/dashboard" replace /> : <Auth />} />
+      <Route path="/auth" element={user ? <Navigate to="https://eggcellent-farmer-dashboard.lovable.app" replace /> : <Auth />} />
       <Route path="/dashboard" element={
         <ProtectedRoute>
           <Dashboard />

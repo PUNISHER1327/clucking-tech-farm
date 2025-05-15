@@ -29,8 +29,9 @@ const Auth = () => {
         if (error) throw error;
         if (data.user) {
           toast.success('Successfully signed in!');
-          // Redirect to external dashboard
+          // Redirect to external dashboard immediately
           window.location.href = 'https://eggcellent-farmer-dashboard.lovable.app';
+          return; // Important to return early since we're redirecting
         }
       } else {
         const { data, error } = await supabase.auth.signUp({ 
