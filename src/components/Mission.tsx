@@ -23,22 +23,22 @@ const Mission = () => {
 
   const icons = [
     {
-      icon: <Thermometer className="w-12 h-12 text-highlight" />,
+      icon: <Thermometer className="w-12 h-12 text-orange-500" />,
       title: "Optimal Temperature",
       description: "Maintaining ideal temperature ranges increases hatch rates by 18%"
     },
     {
-      icon: <Droplet className="w-12 h-12 text-highlight" />,
+      icon: <Droplet className="w-12 h-12 text-green-500" />,
       title: "Humidity Control",
       description: "Perfect humidity levels reduce respiratory issues by 24%"
     },
     {
-      icon: <Cloud className="w-12 h-12 text-highlight" />,
+      icon: <Cloud className="w-12 h-12 text-orange-500" />,
       title: "CO₂ Monitoring",
       description: "Automated ventilation improves air quality and growth rates"
     },
     {
-      icon: <AlertTriangle className="w-12 h-12 text-highlight" />,
+      icon: <AlertTriangle className="w-12 h-12 text-green-500" />,
       title: "Ammonia Detection",
       description: "Early warnings prevent dangerous ammonia buildup situations"
     }
@@ -49,7 +49,7 @@ const Mission = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
-            <h3 className="text-highlight font-medium mb-4 reveal-on-scroll">OUR MISSION</h3>
+            <h3 className="text-green-500 font-medium mb-4 reveal-on-scroll">OUR MISSION</h3>
             <h2 className="text-4xl md:text-5xl font-space font-bold mb-8 reveal-on-scroll stagger-1">
               Reimagining Poultry Farming with Tech
             </h2>
@@ -62,8 +62,8 @@ const Mission = () => {
           
           {/* Connecting line */}
           <div className="relative my-16">
-            <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-highlight/50 to-transparent"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-highlight rounded-full"></div>
+            <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-green-500/50 to-transparent"></div>
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-green-500 rounded-full"></div>
             <div className="flex justify-between">
               <div className="bg-background px-4 py-2 relative z-10 text-gray-300">Rural Farm</div>
               <div className="bg-background px-4 py-2 relative z-10 text-gray-300">Smart Dashboard</div>
@@ -76,7 +76,7 @@ const Mission = () => {
               <div 
                 key={index}
                 className="flex flex-col items-center text-center glass-morphism p-6 rounded-lg 
-                  hover:border-highlight/50 transition-all duration-300 group reveal-on-scroll"
+                  hover:border-green-500/50 transition-all duration-300 group reveal-on-scroll"
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="mb-4 transform transition-transform duration-300 group-hover:scale-110">
@@ -91,8 +91,8 @@ const Mission = () => {
       </div>
       
       {/* Background accent */}
-      <div className="absolute top-1/4 right-0 w-64 h-64 bg-highlight/10 rounded-full blur-[100px]"></div>
-      <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-highlight/10 rounded-full blur-[100px]"></div>
+      <div className="absolute top-1/4 right-0 w-64 h-64 bg-orange-500/10 rounded-full blur-[100px]"></div>
+      <div className="absolute bottom-1/4 left-0 w-64 h-64 bg-green-500/10 rounded-full blur-[100px]"></div>
     </section>
   );
 };
