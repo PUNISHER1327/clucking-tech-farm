@@ -31,7 +31,7 @@ const Offerings = () => {
       unit: "°C",
       minValue: 18,
       maxValue: 32,
-      idealRange: [21, 26],
+      idealRange: [21, 26] as [number, number], // Explicitly cast as tuple
       color: "#f97316"
     },
     {
@@ -41,7 +41,7 @@ const Offerings = () => {
       unit: "%",
       minValue: 40,
       maxValue: 80,
-      idealRange: [60, 70],
+      idealRange: [60, 70] as [number, number], // Explicitly cast as tuple
       color: "#0ea5e9"
     },
     {
@@ -51,7 +51,7 @@ const Offerings = () => {
       unit: "ppm",
       minValue: 400,
       maxValue: 1500,
-      idealRange: [500, 900],
+      idealRange: [500, 900] as [number, number], // Explicitly cast as tuple
       color: "#8b5cf6"
     },
     {
@@ -61,7 +61,7 @@ const Offerings = () => {
       unit: "ppm",
       minValue: 0,
       maxValue: 50,
-      idealRange: [0, 20],
+      idealRange: [0, 20] as [number, number], // Explicitly cast as tuple
       color: "#ef4444"
     }
   ];
