@@ -1,0 +1,82 @@
+
+import React, { useEffect } from 'react';
+import { ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+const Hero = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const elements = document.querySelectorAll('.reveal-on-scroll');
+      
+      elements.forEach((el) => {
+        const elementTop = el.getBoundingClientRect().top;
+        const elementVisible = 150;
+        
+        if (elementTop < window.innerHeight - elementVisible) {
+          el.classList.add('revealed');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Trigger once to reveal elements that are already visible
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
+      {/* Background elements */}
+      <div className="absolute inset-0 grid-bg opacity-20"></div>
+      <div className="absolute top-1/3 -left-28 w-64 h-64 bg-highlight/20 rounded-full blur-[100px]"></div>
+      <div className="absolute bottom-1/4 -right-28 w-80 h-80 bg-highlight/20 rounded-full blur-[100px]"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
+          <div className="inline-flex items-center px-3 py-1 mb-6 rounded-full border border-highlight/30 bg-highlight/5">
+            <span className="text-xs font-medium text-highlight">Next-Generation Poultry Technology</span>
+          </div>
+          
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-space font-bold mb-6 tracking-tight reveal-on-scroll">
+            <span className="text-gradient">Smarter Poultry Farms.</span><br />
+            Healthier Chickens.<br />
+            Better Yields.
+          </h1>
+          
+          <p className="text-lg text-gray-300 max-w-3xl mb-10 reveal-on-scroll stagger-1">
+            Monitor temperature, ammonia, humidity, and CO₂ — in real-time. 
+            Automate feed & airflow with our smart dashboard.
+          </p>
+          
+          <div className="flex flex-wrap gap-4 justify-center reveal-on-scroll stagger-2">
+            <Button className="bg-highlight text-black hover:bg-highlight-muted text-lg px-8 py-6">
+              View Dashboard Demo <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+            <Button variant="outline" className="border-highlight/50 text-highlight hover:bg-highlight/10 text-lg px-8 py-6">
+              Explore Our Sensors
+            </Button>
+          </div>
+        </div>
+      </div>
+      
+      {/* Egg graphic with pulsing glow */}
+      <div className="relative mx-auto mt-16 reveal-on-scroll stagger-3">
+        <div className="w-40 h-40 rounded-full bg-highlight/20 animate-pulse-glow flex items-center justify-center">
+          <div className="w-32 h-32 rounded-full bg-black flex items-center justify-center border border-highlight/50">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-highlight/70 to-highlight-muted/70 animate-float"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+        <span className="text-sm text-gray-400 mb-2">Scroll to explore</span>
+        <div className="w-5 h-8 border-2 border-gray-400 rounded-full flex justify-center p-1">
+          <div className="w-1 h-1.5 bg-gray-400 rounded-full animate-bounce"></div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
