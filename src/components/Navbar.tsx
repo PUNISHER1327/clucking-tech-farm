@@ -39,16 +39,16 @@ const Navbar = () => {
         
         <div className="flex items-center gap-4">
           {user ? (
-            <Button as={Link} to="/dashboard" className="bg-orange-500 text-black hover:bg-orange-600 font-medium">
-              Dashboard
+            <Button asChild className="bg-orange-500 text-black hover:bg-orange-600 font-medium">
+              <Link to="/dashboard">Dashboard</Link>
             </Button>
           ) : (
             <>
-              <Button as={Link} to="/auth" variant="outline" className="hidden sm:flex border-orange-500/50 text-orange-500 hover:bg-orange-500/10">
-                <LogIn className="h-4 w-4 mr-2" /> Login
+              <Button asChild variant="outline" className="hidden sm:flex border-orange-500/50 text-orange-500 hover:bg-orange-500/10">
+                <Link to="/auth"><LogIn className="h-4 w-4 mr-2" /> Login</Link>
               </Button>
-              <Button as={Link} to="/auth" className="bg-orange-500 text-black hover:bg-orange-600 font-medium">
-                Get Started
+              <Button asChild className="bg-orange-500 text-black hover:bg-orange-600 font-medium">
+                <Link to="/auth">Get Started</Link>
               </Button>
             </>
           )}

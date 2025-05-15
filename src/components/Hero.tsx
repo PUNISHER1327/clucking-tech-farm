@@ -54,20 +54,15 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-wrap gap-4 justify-center reveal-on-scroll stagger-2">
-            <Button 
-              as={Link} 
-              to={user ? "/dashboard" : "/auth"} 
-              className="bg-orange-500 text-black hover:bg-orange-600 text-lg px-8 py-6"
-            >
-              View Dashboard Demo <ArrowRight className="ml-2 h-4 w-4" />
+            <Button asChild className="bg-orange-500 text-black hover:bg-orange-600 text-lg px-8 py-6">
+              <Link to={user ? "/dashboard" : "/auth"}>
+                View Dashboard Demo <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
             </Button>
-            <Button 
-              as={Link} 
-              to="#offerings" 
-              variant="outline" 
-              className="border-orange-500/50 text-orange-400 hover:bg-orange-500/10 text-lg px-8 py-6"
-            >
-              Explore Our Sensors
+            <Button asChild variant="outline" className="border-orange-500/50 text-orange-400 hover:bg-orange-500/10 text-lg px-8 py-6">
+              <Link to="#offerings">
+                Explore Our Sensors
+              </Link>
             </Button>
           </div>
         </div>
