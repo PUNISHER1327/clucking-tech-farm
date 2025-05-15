@@ -14,7 +14,7 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 48 96% 53%;
+    --primary: 24 96% 53%;
     --primary-foreground: 240 5.9% 10%;
 
     --secondary: 240 3.7% 15.9%;
@@ -31,7 +31,7 @@
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 48 96% 53%;
+    --ring: 24 96% 53%;
 
     --radius: 0.75rem;
   }
@@ -46,7 +46,7 @@
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 48 96% 53%;
+    --primary: 24 96% 53%;
     --primary-foreground: 240 5.9% 10%;
 
     --secondary: 240 3.7% 15.9%;
@@ -63,13 +63,13 @@
 
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
-    --ring: 48 96% 53%;
+    --ring: 24 96% 53%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border selection:bg-highlight/20 selection:text-white;
+    @apply border-border selection:bg-orange-500/20 selection:text-white;
   }
   
   body {
@@ -92,12 +92,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(250, 204, 21, 0.6);
+  background-color: rgba(249, 115, 22, 0.6);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(250, 204, 21, 0.8);
+  background-color: rgba(249, 115, 22, 0.8);
 }
 
 /* Custom Utility Classes */
@@ -107,11 +107,11 @@
   }
   
   .text-gradient {
-    @apply bg-gradient-to-r from-highlight to-highlight-muted bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-orange-500 to-orange-300 bg-clip-text text-transparent;
   }
 
   .hover-glow {
-    @apply transition-all duration-300 hover:text-highlight hover:shadow-[0_0_8px_rgba(250,204,21,0.5)];
+    @apply transition-all duration-300 hover:text-orange-500 hover:shadow-[0_0_8px_rgba(249,115,22,0.5)];
   }
   
   .grid-bg {
@@ -143,4 +143,15 @@
 }
 .animate-spin-slow {
   animation: spin 3s linear infinite;
+}
+
+/* Add this for the world map */
+.continent-path {
+  transition: stroke-width 0.3s ease, stroke-opacity 0.3s ease;
+}
+
+.continent-path:hover {
+  stroke-width: 3;
+  stroke-opacity: 1;
+  filter: drop-shadow(0 0 4px rgba(249, 115, 22, 0.7));
 }

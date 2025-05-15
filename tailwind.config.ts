@@ -63,7 +63,7 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				highlight: "#facc15",
+				highlight: "#f97316",
 				"highlight-muted": "#fdba74",
 			},
 			borderRadius: {
