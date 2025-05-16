@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useAuth } from '@/context/AuthContext';
+import EggAnimation from './EggAnimation';
 
 const Hero = () => {
   const { user } = useAuth();
@@ -35,6 +36,9 @@ const Hero = () => {
       <div className="absolute inset-0 grid-bg opacity-20"></div>
       <div className="absolute top-1/3 -left-28 w-64 h-64 bg-orange-500/20 rounded-full blur-[100px]"></div>
       <div className="absolute bottom-1/4 -right-28 w-80 h-80 bg-green-500/20 rounded-full blur-[100px]"></div>
+      
+      {/* Egg Animation */}
+      <EggAnimation />
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col items-center text-center max-w-5xl mx-auto">
@@ -68,7 +72,7 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Scroll indicator moved to be more visible and replacing the floating egg */}
+      {/* Scroll indicator */}
       <div className="relative mx-auto mt-24 mb-8 reveal-on-scroll stagger-3">
         <div className="flex flex-col items-center">
           <span className="text-sm text-gray-400 mb-2">Scroll to explore</span>
