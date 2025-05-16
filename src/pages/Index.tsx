@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Mission from '@/components/Mission';
@@ -7,8 +8,24 @@ import Offerings from '@/components/Offerings';
 import AboutUs from '@/components/AboutUs';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
+import { useAuth } from '@/context/AuthContext';
 
 const Index = () => {
+  const location = useLocation();
+  const { user } = useAuth();
+  
+  // Handle external redirect
+  useEffect(() => {
+    // Check if we have an external redirect in state
+    if (location.state && location.state.externalRedirect) {
+      window.location.href = location.state.externalRedirect;
+    }
+    // If user is logged in, redirect them to external site
+    else if (user) {
+      window.location.href = 'https://eggcellent-farmer-dashboard.lovable.app';
+    }
+  }, [location, user]);
+
   useEffect(() => {
     // Script to handle scroll animations
     const handleScroll = () => {

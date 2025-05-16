@@ -43,7 +43,13 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Index />} />
-      <Route path="/auth" element={user ? <Navigate to="/dashboard" replace /> : <Auth />} />
+      <Route path="/auth" element={
+        user ? 
+          // Redirect to external site instead of internal dashboard
+          <Navigate to="/" replace state={{ externalRedirect: 'https://eggcellent-farmer-dashboard.lovable.app' }} /> 
+          : 
+          <Auth />
+      } />
       <Route path="/dashboard" element={
         <ProtectedRoute>
           <Dashboard />
