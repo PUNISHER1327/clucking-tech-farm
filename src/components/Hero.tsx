@@ -55,7 +55,7 @@ const Hero = () => {
           
           <div className="flex flex-wrap gap-4 justify-center reveal-on-scroll stagger-2">
             <Button asChild className="bg-orange-500 text-black hover:bg-orange-600 text-lg px-8 py-6">
-              <Link to={user ? "/dashboard" : "/auth"}>
+              <Link to="/dashboard">
                 View Dashboard Demo <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

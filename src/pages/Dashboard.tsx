@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
-import { Egg, LogOut, ChevronDown, ArrowUpDown, Bell, User, BarChart4, Thermometer, Droplet, Cloud, AlertTriangle } from 'lucide-react';
+import { Egg, LogOut, ChevronDown, ArrowUpDown, Bell, User, BarChart4, Thermometer, Droplet, Cloud, AlertTriangle, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { 
   LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer 
@@ -108,6 +108,13 @@ const Dashboard = () => {
           </div>
           
           <div className="flex items-center gap-4">
+            <Button asChild variant="outline" className="border-green-500/30 text-green-400 hover:bg-green-500/10">
+              <Link to="/">
+                <Home className="h-4 w-4 mr-2" />
+                <span className="hidden sm:inline">Return Home</span>
+              </Link>
+            </Button>
+            
             <div className="flex items-center">
               <Bell className="h-5 w-5 text-gray-300 mr-2" />
               <div className="h-2 w-2 bg-highlight rounded-full absolute ml-3 mt-[-12px]"></div>

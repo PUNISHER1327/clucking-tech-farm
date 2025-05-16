@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { ArrowRight, Thermometer, Droplet, Cloud, AlertTriangle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import SensorCard from './SensorCard';
+import { Link } from 'react-router-dom';
 
 const Offerings = () => {
   useEffect(() => {
@@ -116,11 +117,13 @@ const Offerings = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="mt-6 bg-highlight text-black hover:bg-highlight-muted group">
-                Launch Dashboard
-                <span className="inline-block ml-2 group-hover:rotate-45 transition-transform duration-300">
-                  <ArrowRight className="h-4 w-4" />
-                </span>
+              <Button asChild className="mt-6 bg-highlight text-black hover:bg-highlight-muted group">
+                <Link to="/dashboard">
+                  Launch Dashboard
+                  <span className="inline-block ml-2 group-hover:rotate-45 transition-transform duration-300">
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
+                </Link>
               </Button>
             </div>
             
