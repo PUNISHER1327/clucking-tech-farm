@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Mission from '@/components/Mission';
@@ -12,17 +12,13 @@ import { useAuth } from '@/context/AuthContext';
 
 const Index = () => {
   const location = useLocation();
-  const { user } = useAuth();
+  const { user, isLoading } = useAuth();
   
-  // Handle external redirect
+  // Handle external redirect only when explicitly logged in
   useEffect(() => {
-    // Check if we have an external redirect in state
-    if (location.state && location.state.externalRedirect) {
+    // Only redirect if we have an explicit external redirect in state
+    if (location.state && location.state.externalRedirect && user) {
       window.location.href = location.state.externalRedirect;
-    }
-    // If user is logged in, redirect them to external site
-    else if (user) {
-      window.location.href = 'https://eggcellent-farmer-dashboard.lovable.app';
     }
   }, [location, user]);
 

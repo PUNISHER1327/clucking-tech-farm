@@ -29,7 +29,7 @@ const Auth = () => {
         if (error) throw error;
         if (data.user) {
           toast.success('Successfully signed in!');
-          // Redirect directly to external dashboard - using window.location.href for a complete redirect
+          // Redirect directly to external dashboard with full page navigation
           window.location.href = 'https://eggcellent-farmer-dashboard.lovable.app';
           return;
         }
