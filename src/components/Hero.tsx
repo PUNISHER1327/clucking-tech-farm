@@ -68,20 +68,13 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Egg graphic with pulsing glow - moved up to avoid overlap with scroll element */}
-      <div className="relative mx-auto mt-16 mb-24 reveal-on-scroll stagger-3">
-        <div className="w-40 h-40 rounded-full bg-green-500/20 animate-pulse-glow flex items-center justify-center">
-          <div className="w-32 h-32 rounded-full bg-black flex items-center justify-center border border-orange-500/50">
-            <div className="w-24 h-24 rounded-full bg-gradient-to-br from-orange-500/70 to-green-300/70 animate-float"></div>
+      {/* Scroll indicator moved to be more visible and replacing the floating egg */}
+      <div className="relative mx-auto mt-24 mb-8 reveal-on-scroll stagger-3">
+        <div className="flex flex-col items-center">
+          <span className="text-sm text-gray-400 mb-2">Scroll to explore</span>
+          <div className="w-5 h-8 border-2 border-gray-400 rounded-full flex justify-center p-1">
+            <div className="w-1 h-1.5 bg-gray-400 rounded-full animate-bounce"></div>
           </div>
-        </div>
-      </div>
-      
-      {/* Scroll indicator moved down for better spacing */}
-      <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-        <span className="text-sm text-gray-400 mb-2">Scroll to explore</span>
-        <div className="w-5 h-8 border-2 border-gray-400 rounded-full flex justify-center p-1">
-          <div className="w-1 h-1.5 bg-gray-400 rounded-full animate-bounce"></div>
         </div>
       </div>
     </section>

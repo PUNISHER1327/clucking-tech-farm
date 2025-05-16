@@ -1,6 +1,5 @@
 
 import React, { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Mission from '@/components/Mission';
@@ -11,17 +10,8 @@ import Footer from '@/components/Footer';
 import { useAuth } from '@/context/AuthContext';
 
 const Index = () => {
-  const location = useLocation();
-  const { user, isLoading } = useAuth();
+  const { isLoading } = useAuth();
   
-  // Handle external redirect only when explicitly logged in
-  useEffect(() => {
-    // Only redirect if we have an explicit external redirect in state
-    if (location.state && location.state.externalRedirect && user) {
-      window.location.href = location.state.externalRedirect;
-    }
-  }, [location, user]);
-
   useEffect(() => {
     // Script to handle scroll animations
     const handleScroll = () => {
