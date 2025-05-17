@@ -30,7 +30,7 @@ const Auth = () => {
         if (data.user) {
           toast.success('Successfully signed in!');
           // Redirect directly to external dashboard with full page navigation
-          window.location.href = 'https://eggcellent-farmer-dashboard.lovable.app';
+          window.location.href = 'https://eggcellent-farmer-dashboard.vercel.app';
           return;
         }
       } else {
