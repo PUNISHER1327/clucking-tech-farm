@@ -20,6 +20,7 @@ PURAIR addresses the often-overlooked issue of **air quality in poultry farms** 
 - 🌀 **Smart Actuation**: Auto activation of fans and misting systems
 - 📊 **Dashboard (optional)**: Live data visualization using [platform]
 - 📈 **Impact**: Higher egg production, better bird health, reduced labor
+- 💻 **ML-Model**: https://colab.research.google.com/drive/1F1q22qs-WuLFsVUF5o1hoKle1MJkIH2i?usp=sharing
 
 ---
 
