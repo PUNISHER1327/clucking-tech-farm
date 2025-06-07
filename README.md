@@ -29,7 +29,7 @@ PURAIR addresses the often-overlooked issue of **air quality in poultry farms** 
 |------------------|--------------------------------------------------|
 | Hardware         | MQ-135, DHT11, CO₂ Sensor, ESP32/Arduino         |
 | Firmware         | Arduino IDE, Embedded C                          |
-| Backend          | Python (Flask) / Node.js (if applicable)         |
+| Backend          | Supabase                                         |
 | Communication    | Serial/WiFi (ESP32), MQTT (optional)             |
 | Automation Logic | Threshold-based conditions, actuator control     |
 | Dashboard        | [ThingSpeak / Blynk / Custom Web App]            |
