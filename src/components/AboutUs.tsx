@@ -105,7 +105,7 @@ const AboutUs = () => {
             <Globe className="top-0" />
             
             <div className="absolute bottom-8 left-0 w-full text-center z-10">
-              <p className="text-lg font-medium">
+              <p className="text-lg font-medium text-orange-500">
                 Trusted by poultry farmers in India, Africa, and Southeast Asia
               </p>
             </div>
