@@ -35,7 +35,7 @@ const Auth = () => {
         if (data.user) {
           toast.success('Successfully signed in!');
           // Redirect directly to external dashboard with full page navigation
-          window.location.href = 'https://eggcellent-farmer-dashboard.vercel.app';
+          window.location.href = 'https://preview--eggcellent-farmer-dashboard.lovable.app';
           return;
         }
       } else {
@@ -54,8 +54,9 @@ const Auth = () => {
         });
 
         if (error) throw error;
-        toast.success('Registration successful! You can now sign in.');
-        setIsLogin(true);
+        toast.success('Registration successful! Redirecting to dashboard...');
+        // Redirect to external dashboard after successful signup
+        window.location.href = 'https://preview--eggcellent-farmer-dashboard.lovable.app';
       }
     } catch (error: any) {
       toast.error(error.message || 'An error occurred during authentication');

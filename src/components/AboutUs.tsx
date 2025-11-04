@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import WorldMap from './WorldMap';
+import { Globe } from './ui/globe';
 
 const AboutUs = () => {
   useEffect(() => {
@@ -100,11 +100,11 @@ const AboutUs = () => {
         </div>
         
         <div className="max-w-4xl mx-auto relative reveal-on-scroll stagger-1">
-          {/* World Map */}
-          <div className="w-full aspect-[2/1] glass-morphism rounded-xl p-6 relative">
-            <WorldMap />
+          {/* Globe */}
+          <div className="w-full aspect-[2/1] glass-morphism rounded-xl p-6 relative flex items-center justify-center">
+            <Globe className="top-0" />
             
-            <div className="absolute bottom-8 left-0 w-full text-center">
+            <div className="absolute bottom-8 left-0 w-full text-center z-10">
               <p className="text-lg font-medium">
                 Trusted by poultry farmers in India, Africa, and Southeast Asia
               </p>
