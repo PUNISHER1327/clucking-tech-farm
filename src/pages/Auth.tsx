@@ -11,6 +11,11 @@ import { Label } from '@/components/ui/label';
 const Auth = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [numberOfFarms, setNumberOfFarms] = useState('');
+  const [totalFarmArea, setTotalFarmArea] = useState('');
+  const [chickensPerFarm, setChickensPerFarm] = useState('');
+  const [farmLocation, setFarmLocation] = useState('');
   const [loading, setLoading] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
   const navigate = useNavigate();
@@ -39,14 +44,17 @@ const Auth = () => {
           password,
           options: {
             data: {
-              full_name: '',
-              farm_name: ''
+              full_name: fullName,
+              number_of_farms: numberOfFarms,
+              total_farm_area: totalFarmArea,
+              chickens_per_farm: chickensPerFarm,
+              farm_location: farmLocation
             }
           }
         });
 
         if (error) throw error;
-        toast.success('Registration successful! Please check your email for verification.');
+        toast.success('Registration successful! You can now sign in.');
         setIsLogin(true);
       }
     } catch (error: any) {
@@ -67,7 +75,7 @@ const Auth = () => {
           </p>
         </div>
         
-        <div className="glass-morphism rounded-lg p-8 border border-highlight/30">
+        <div className="glass-morphism rounded-lg p-8 border border-highlight/30 max-h-[80vh] overflow-y-auto">
           <form onSubmit={handleAuth} className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="email" className="text-white">Email</Label>
@@ -94,6 +102,79 @@ const Auth = () => {
                 required
               />
             </div>
+
+            {!isLogin && (
+              <>
+                <div className="space-y-2">
+                  <Label htmlFor="fullName" className="text-white">Full Name</Label>
+                  <Input
+                    id="fullName"
+                    type="text"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    placeholder="John Doe"
+                    className="bg-black/60 border-highlight/30 text-white"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="numberOfFarms" className="text-white">Number of Farms</Label>
+                  <Input
+                    id="numberOfFarms"
+                    type="number"
+                    min="1"
+                    value={numberOfFarms}
+                    onChange={(e) => setNumberOfFarms(e.target.value)}
+                    placeholder="e.g., 2"
+                    className="bg-black/60 border-highlight/30 text-white"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="totalFarmArea" className="text-white">Total Farm Area (acres)</Label>
+                  <Input
+                    id="totalFarmArea"
+                    type="number"
+                    step="0.01"
+                    min="0"
+                    value={totalFarmArea}
+                    onChange={(e) => setTotalFarmArea(e.target.value)}
+                    placeholder="e.g., 50.5"
+                    className="bg-black/60 border-highlight/30 text-white"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="chickensPerFarm" className="text-white">Chickens per Farm</Label>
+                  <Input
+                    id="chickensPerFarm"
+                    type="number"
+                    min="1"
+                    value={chickensPerFarm}
+                    onChange={(e) => setChickensPerFarm(e.target.value)}
+                    placeholder="e.g., 1000"
+                    className="bg-black/60 border-highlight/30 text-white"
+                    required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="farmLocation" className="text-white">Farm Location</Label>
+                  <Input
+                    id="farmLocation"
+                    type="text"
+                    value={farmLocation}
+                    onChange={(e) => setFarmLocation(e.target.value)}
+                    placeholder="e.g., California, USA"
+                    className="bg-black/60 border-highlight/30 text-white"
+                    required
+                  />
+                </div>
+              </>
+            )}
 
             <Button 
               type="submit" 

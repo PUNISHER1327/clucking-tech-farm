@@ -80,14 +80,14 @@ const Dashboard = () => {
         const { data, error } = await supabase
           .from('profiles')
           .select('*')
-          .eq('id', session.user.id)
-          .single();
+          .eq('user_id', session.user.id)
+          .maybeSingle();
         
         if (error) throw error;
         
         setUserData(data);
-        if (data?.farm_name) {
-          setFarmName(data.farm_name);
+        if (data?.farm_location) {
+          setFarmName(`${data.full_name}'s Farm - ${data.farm_location}`);
         }
       } catch (error) {
         console.error('Error fetching profile:', error);
