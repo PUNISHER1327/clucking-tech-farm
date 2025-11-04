@@ -116,7 +116,7 @@ const ContactForm = () => {
                     <Mail className="h-6 w-6 text-highlight mr-4" />
                     <div>
                       <h4 className="text-sm text-gray-400">Email</h4>
-                      <a href="mailto:info@smartpoultry.tech" className="hover-glow">info@smartpoultry.tech</a>
+                      <a href="mailto:info@smartpoultry.tech" className="hover-glow">aditya2004manhas@gmail.com</a>
                     </div>
                   </div>
                   
@@ -124,7 +124,7 @@ const ContactForm = () => {
                     <Phone className="h-6 w-6 text-highlight mr-4" />
                     <div>
                       <h4 className="text-sm text-gray-400">Phone</h4>
-                      <a href="tel:+919876543210" className="hover-glow">+91 98765 43210</a>
+                      <a href="tel:+919876543210" className="hover-glow">+91 6005609423</a>
                     </div>
                   </div>
                 </div>
