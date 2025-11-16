@@ -3,20 +3,51 @@
 
 ---
 
+## 🏆 Achievements & Recognition
+
+### 🥇 **Top 10 National Finalist — CMTI Design & Innovation Clinic 2025**  
+PURAIR was selected as one of the **Top 10 Innovations across India** at the  
+**CMTI National Design & Innovation Program 2025**, competing among nationwide submissions.
+
+### 💰 **Funded by NAIN (New Age Innovation Network)**  
+Our project secured **official funding from NAIN**, recognizing PURAIR as a high-potential innovation capable of solving real-world poultry industry challenges at scale.
+
+### 🔬 **6 Months of Dedicated Research**  
+The system is backed by **6+ months of research** in:
+
+- Environmental monitoring
+- Poultry farm analytics
+- LSTM-based forecasting
+- IoT hardware optimization
+- Data interpretation with domain experts
+
+### 🐓 **Real Client Collaboration**  
+PURAIR is being developed with inputs and real-world requirements from an  
+**actual poultry farm client**, ensuring:
+
+- Practicality  
+- Deployability  
+- Domain relevance  
+- Real operational impact  
+
+This makes PURAIR not just a lab prototype — but a **pre-production industry-ready solution**.
+
+---
+
 ## 📌 Overview
 
-**PURAIR** is an **AI + IoT powered egg production forecasting system** designed for poultry farms.  
-The platform uses **real-time environmental sensor data** combined with **biological and management features** to forecast daily egg production with improved accuracy.
+**PURAIR** is an **AI + IoT powered egg production forecasting system** built for poultry farms.  
+The platform uses **real-time environmental sensor data** and **biological management data** to forecast daily egg production accurately.
 
-This helps farmers:
+This enables:
 
-- Detect production drops early  
-- Optimize feeding schedules  
-- Improve flock health  
-- Make data-driven decisions  
-- Reduce financial losses  
+- Early detection of production drops  
+- Optimized feed planning  
+- Improved flock health  
+- Better decision-making  
+- Reduced financial loss  
 
-Built for **Indian poultry conditions**, PURAIR focuses on affordability, scalability, and ease of deployment.
+Designed specifically for **Indian poultry environments**, PURAIR blends **low-cost IoT hardware** with **advanced AI forecasting models**.
 
 ---
 
@@ -28,110 +59,112 @@ Real-time sensing using ESP32-based hardware:
 - **Air Quality (MQ135)**
 - **Temperature**
 - **Humidity**
-- Optional: Alcohol / CO₂ Sensors  
+- Optional: Alcohol / CO₂ Sensors
 
-Sensor data streams continuously to the cloud for AI inference.
+Data streams into the cloud for AI inference.
 
 ---
 
 ### 🟩 AI Layer  
-Forecasting done using a **Future-Ready LSTM Neural Network** trained on:
+A stacked **LSTM neural network** trained on:
 
-#### 📡 Environmental Sensor Inputs
+#### Environmental Inputs
 - AirQuality_MQ135  
 - Temperature  
 - Humidity  
 
-#### 🐓 Biological & Management Inputs *(Dummy data for now, real collection planned)*  
+#### Biological & Management Inputs
+(Currently dummy data, real integration in progress)
+
 - Age_Weeks  
 - Feed_Intake_g  
 - Breed_ID / Breed_Name  
 - Body_Weight_g  
 - Mortality  
 
-#### 🎯 Target Variable  
-- **Daily Egg Count**
+#### Output
+- **Next-day Egg Count**
 
 ---
 
+Why LSTM?
 
-### Why LSTM?
-- Egg production is **time-dependent**
-- LSTM learns patterns over sliding windows (30-day sequences)
-- Handles fluctuations, trends, and environmental transitions better than traditional ML
+- Captures time-dependent behavior  
+- Learns patterns over rolling windows  
+- Deals well with noisy biological data  
+- Outperforms classical ML on sequential sensor streams  
 
 ---
 
 ## 📊 Data Pipeline
 
-1. Load raw dataset  
-2. Convert timestamps  
-3. Scale features (StandardScaler)  
-4. Generate 30-day rolling sequences  
-5. Train-test split (80/20)  
-6. Train stacked LSTM model with callbacks  
-7. Predict egg count  
-8. Inverse scale predictions  
-9. Evaluate using MAE, RMSE, R²  
-10. Visualize outputs  
-11. Save model + scalers  
+1. Load dataset  
+2. Timestamp processing  
+3. Standardize features  
+4. Create 30-day sliding windows  
+5. Train-test split  
+6. Train stacked LSTM with callbacks  
+7. Predict future egg count  
+8. Inverse-scaling  
+9. Evaluate performance  
+10. Save artifacts for deployment  
 
 ---
 
 ## 📏 Evaluation Metrics
 
-- **MAE (Mean Absolute Error)**  
-- **RMSE (Root Mean Square Error)**  
-- **R² Score**  
+- **MAE** (Mean Absolute Error)  
+- **RMSE** (Root Mean Square Error)  
+- **R² Score**
 
-These measure prediction accuracy and model reliability.
+These provide a strong understanding of trend-capturing ability and prediction accuracy.
 
 ---
 
-## 🧪 Dummy Data Generation (for Feature Expansion)
+## 🧪 Biological Dummy Data (Real Integration Coming Soon)
 
-To simulate real poultry-farm conditions, we generated biologically accurate dummy values:
+To prepare the model for multi-feature forecasting, biologically accurate dummy data is added:
 
-### ✔ Age  
-Starts at 20 weeks and increases daily.
+### Age  
+Starts at ~20 weeks and increases naturally.
 
-### ✔ Feed Intake  
-105–125 grams per bird per day.
+### Feed Intake  
+Typical 105–125 g/bird/day.
 
-### ✔ Breed  
-Randomized among:  
+### Breed  
+Encoded values:
 - White Leghorn (0)  
 - Hy-Line Brown (1)  
 - ISA Brown (2)
 
-### ✔ Body Weight  
-1400–1850g depending on age.
+### Body Weight  
+1400–1850 g based on age.
 
-### ✔ Mortality  
+### Mortality  
 0–2 birds/day.
 
-A new file `purairDataset_augmented.csv` is created containing these values.
+A full augmented dataset is generated → `purairDataset_augmented.csv`.
 
 ---
 
-## 📡 Monitoring Strategy for Future Real Deployment
+## 📡 Real-world Monitoring Strategy (Post-Deployment)
 
-### 🟦 Age  
-Auto-calculated by the system once flock's starting age is entered.
+### Age  
+Auto-increment; no hardware needed.
 
-### 🟧 Feed Intake  
-- **Now:** Manual entry  
-- **Future:** IoT load-cell feed hopper
+### Feed Intake  
+- Manual entry OR  
+- Future: IoT load-cell system
 
-### 🟪 Breed  
-Static input during flock onboarding.
+### Breed  
+Static when flock is added.
 
-### 🟩 Body Weight  
-- **Now:** Random-sample weighing (manual)  
-- **Future:** Smart IoT weighing perch
+### Body Weight  
+- Manual sampling OR  
+- Future: IoT smart perch
 
-### 🟥 Mortality  
-Simple daily manual entry.
+### Mortality  
+Daily log (one-click entry)
 
 ---
 
@@ -142,9 +175,9 @@ Simple daily manual entry.
 | Hardware | ESP32, MQ135, DHT11, Load Cell (HX711) |
 | AI / Backend | Python, TensorFlow, Keras |
 | ML Utilities | NumPy, Pandas, Scikit-learn |
-| Visualization | Matplotlib |
-| Model Files | `.h5` model, `.pkl` scalers |
-| Dataset | purairDataset2.csv + augmented features |
+| Visuals | Matplotlib |
+| Models | `.h5` LSTM model, `.pkl` scalers |
+| Data | purairDataset2.csv + augmented features |
 
 ---
 
@@ -152,53 +185,50 @@ Simple daily manual entry.
 
 ## 🌱 Why PURAIR Matters
 
-Indian poultry farms face massive losses due to:
+India’s poultry sector faces challenges like:
 
-- Unexpected egg drops  
-- Poor environmental monitoring  
+- Unexpected egg drop  
+- Weather-driven stress  
+- Feed mismanagement  
 - Disease outbreaks  
-- Unoptimized feed usage  
 
-**PURAIR** brings:
+PURAIR delivers:
 
-- Data-driven forecasting  
-- Affordable IoT sensing  
-- AI-powered insights  
-- Scalable architecture  
+- Intelligent forecasting  
+- Continuous IoT monitoring  
+- AI-driven insights  
+- Precision farming at low cost  
 
-It is a major step toward **precision poultry farming in India**.
+A direct step toward **smart poultry farming**.
 
 ---
 
 ## 🧭 Future Scope
 
-- Transformer-based forecasting models  
-- Automated real-time dashboard (Firebase / FastAPI)  
-- Perch-based auto-weighing system  
-- Feed planning engine  
-- Disease prediction using anomaly analysis  
-- Mobile app for farmers  
-- Cloud Functions for auto-triggered inference  
+- Transformer-based time-series model  
+- Full Firebase/Cloud Function deployment  
+- Mobile dashboard for farmers  
+- Automated feed optimization  
+- Predictive disease detection  
+- Smart perches and IoT load-cell feed silos  
+- Multi-barn scaling support  
 
 ---
 
 ## 👥 Team ZERO
 
-- **Hrudhay H** — AI & ML and Data Analysis
+- **Hrudhay H** — AI & ML + Data Analysis  
 - **Aditya Manhas** — Full-Stack + Pipelining
 - **Abhishek A R** — Hardware + IoT
-- **R Sujay Bharadwaj** — IoT + UI/UX desigining
+- **R Sujay Bharadwaj** — UI/UX + IoT
 
+PURAIR proudly stands as a  
+**NAIN-funded innovation**,  
+**Top 10 CMTI finalist**,  
+and a solution being built with a **real poultry client**.
 
 ---
 
 ## 📝 License
 
 This project is open-source under the MIT License.
-
----
-
-
-
-
-
