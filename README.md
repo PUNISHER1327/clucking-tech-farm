@@ -3,24 +3,6 @@
 
 ---
 
-## 🏆 Achievements & Recognition
-
-### 🥇 **Top 10 National Finalist — CMTI Design & Innovation Clinic 2025**  
-PURAIR was selected as one of the **Top 10 Innovations across India** at the  
-**CMTI National Design & Innovation Program 2025**, competing among nationwide submissions.
-
-### 💰 **Funded by NAIN (New Age Innovation Network)**  
-Our project secured **official funding from NAIN**, recognizing PURAIR as a high-potential innovation capable of solving real-world poultry industry challenges at scale.
-
-### 🔬 **6 Months of Dedicated Research**  
-The system is backed by **6+ months of research** in:
-
-- Environmental monitoring
-- Poultry farm analytics
-- LSTM-based forecasting
-- IoT hardware optimization
-- Data interpretation with domain experts
-
 ### 🐓 **Real Client Collaboration**  
 PURAIR is being developed with inputs and real-world requirements from an  
 **actual poultry farm client**, ensuring:
@@ -31,6 +13,23 @@ PURAIR is being developed with inputs and real-world requirements from an
 - Real operational impact  
 
 This makes PURAIR not just a lab prototype — but a **pre-production industry-ready solution**.
+
+---
+
+## 🏆 Achievements & Recognition
+
+### 🥇 **Top 10 National Finalist — CMTI Design & Innovation Clinic 2025**  
+PURAIR was selected as one of the **Top 10 Innovations across India** at the  
+**CMTI National Design & Innovation Program 2025**, competing among nationwide submissions.
+
+### 🔬 **6 Months of Dedicated Research**  
+The system is backed by **6+ months of research** in:
+
+- Environmental monitoring
+- Poultry farm analytics
+- LSTM-based forecasting
+- IoT hardware optimization
+- Data interpretation with domain experts
 
 ---
 
@@ -143,7 +142,6 @@ Encoded values:
 ### Mortality  
 0–2 birds/day.
 
-A full augmented dataset is generated → `purairDataset_augmented.csv`.
 
 ---
 
