@@ -220,7 +220,7 @@ A direct step toward **smart poultry farming**.
 - **Hrudhay H** — AI & ML + Data Analysis  
 - **Aditya Manhas** — Full-Stack + Pipelining
 - **Abhishek A R** — Hardware + IoT
-- **R Sujay Bharadwaj** — UI/UX + IoT
+- **R Sujay Bharadwaj** — UI/UX Designing + IoT
 
 PURAIR proudly stands as a  
 **NAIN-funded innovation**,  
