@@ -1,73 +1,204 @@
-# Welcome to your Lovable project
+# 🐔 PURAIR — AI + IoT Based Smart Egg Production Forecasting System  
+### *An Intelligent, Sensor-Driven Poultry Farm Monitoring & Prediction Platform*
 
-## Project info
+---
 
-**URL**: https://lovable.dev/projects/627f65c6-4f58-4434-8e57-bf8d3076d552
+## 📌 Overview
 
-## How can I edit this code?
+**PURAIR** is an **AI + IoT powered egg production forecasting system** designed for poultry farms.  
+The platform uses **real-time environmental sensor data** combined with **biological and management features** to forecast daily egg production with improved accuracy.
 
-There are several ways of editing your application.
+This helps farmers:
 
-**Use Lovable**
+- Detect production drops early  
+- Optimize feeding schedules  
+- Improve flock health  
+- Make data-driven decisions  
+- Reduce financial losses  
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/627f65c6-4f58-4434-8e57-bf8d3076d552) and start prompting.
+Built for **Indian poultry conditions**, PURAIR focuses on affordability, scalability, and ease of deployment.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🚀 Key Features
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 🟦 IoT Layer  
+Real-time sensing using ESP32-based hardware:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Air Quality (MQ135)**
+- **Temperature**
+- **Humidity**
+- Optional: Alcohol / CO₂ Sensors  
 
-Follow these steps:
+Sensor data streams continuously to the cloud for AI inference.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### 🟩 AI Layer  
+Forecasting done using a **Future-Ready LSTM Neural Network** trained on:
 
-# Step 3: Install the necessary dependencies.
-npm i
+#### 📡 Environmental Sensor Inputs
+- AirQuality_MQ135  
+- Temperature  
+- Humidity  
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+#### 🐓 Biological & Management Inputs *(Dummy data for now, real collection planned)*  
+- Age_Weeks  
+- Feed_Intake_g  
+- Breed_ID / Breed_Name  
+- Body_Weight_g  
+- Mortality  
 
-**Edit a file directly in GitHub**
+#### 🎯 Target Variable  
+- **Daily Egg Count**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Why LSTM?
+- Egg production is **time-dependent**
+- LSTM learns patterns over sliding windows (30-day sequences)
+- Handles fluctuations, trends, and environmental transitions better than traditional ML
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 📊 Data Pipeline
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+1. Load raw dataset  
+2. Convert timestamps  
+3. Scale features (StandardScaler)  
+4. Generate 30-day rolling sequences  
+5. Train-test split (80/20)  
+6. Train stacked LSTM model with callbacks  
+7. Predict egg count  
+8. Inverse scale predictions  
+9. Evaluate using MAE, RMSE, R²  
+10. Visualize outputs  
+11. Save model + scalers  
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/627f65c6-4f58-4434-8e57-bf8d3076d552) and click on Share -> Publish.
+## 📏 Evaluation Metrics
 
-## Can I connect a custom domain to my Lovable project?
+- **MAE (Mean Absolute Error)**  
+- **RMSE (Root Mean Square Error)**  
+- **R² Score**  
 
-Yes, you can!
+These measure prediction accuracy and model reliability.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 🧪 Dummy Data Generation (for Feature Expansion)
+
+To simulate real poultry-farm conditions, we generated biologically accurate dummy values:
+
+### ✔ Age  
+Starts at 20 weeks and increases daily.
+
+### ✔ Feed Intake  
+105–125 grams per bird per day.
+
+### ✔ Breed  
+Randomized among:  
+- White Leghorn (0)  
+- Hy-Line Brown (1)  
+- ISA Brown (2)
+
+### ✔ Body Weight  
+1400–1850g depending on age.
+
+### ✔ Mortality  
+0–2 birds/day.
+
+A new file `purairDataset_augmented.csv` is created containing these values.
+
+---
+
+## 📡 Monitoring Strategy for Future Real Deployment
+
+### 🟦 Age  
+Auto-calculated by the system once flock's starting age is entered.
+
+### 🟧 Feed Intake  
+- **Now:** Manual entry  
+- **Future:** IoT load-cell feed hopper
+
+### 🟪 Breed  
+Static input during flock onboarding.
+
+### 🟩 Body Weight  
+- **Now:** Random-sample weighing (manual)  
+- **Future:** Smart IoT weighing perch
+
+### 🟥 Mortality  
+Simple daily manual entry.
+
+---
+
+## 🛠 Tech Stack
+
+| Layer | Tools |
+|-------|-------|
+| Hardware | ESP32, MQ135, DHT11, Load Cell (HX711) |
+| AI / Backend | Python, TensorFlow, Keras |
+| ML Utilities | NumPy, Pandas, Scikit-learn |
+| Visualization | Matplotlib |
+| Model Files | `.h5` model, `.pkl` scalers |
+| Dataset | purairDataset2.csv + augmented features |
+
+---
+
+---
+
+## 🌱 Why PURAIR Matters
+
+Indian poultry farms face massive losses due to:
+
+- Unexpected egg drops  
+- Poor environmental monitoring  
+- Disease outbreaks  
+- Unoptimized feed usage  
+
+**PURAIR** brings:
+
+- Data-driven forecasting  
+- Affordable IoT sensing  
+- AI-powered insights  
+- Scalable architecture  
+
+It is a major step toward **precision poultry farming in India**.
+
+---
+
+## 🧭 Future Scope
+
+- Transformer-based forecasting models  
+- Automated real-time dashboard (Firebase / FastAPI)  
+- Perch-based auto-weighing system  
+- Feed planning engine  
+- Disease prediction using anomaly analysis  
+- Mobile app for farmers  
+- Cloud Functions for auto-triggered inference  
+
+---
+
+## 👥 Team ZERO
+
+- **Hrudhay H** — AI & ML and Data Analysis
+- **Aditya Manhas** — Full-Stack + Pipelining
+- **Abhishek A R** — Hardware + IoT
+- **R Sujay Bharadwaj** — IoT + UI/UX desigining
+
+
+---
+
+## 📝 License
+
+This project is open-source under the MIT License.
+
+---
+
+
+
+
+
